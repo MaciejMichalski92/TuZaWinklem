@@ -5,6 +5,7 @@
 dist/
 storybook-static/
 .env
+.next
 .env.local
 # User-specific files
 *.rsuser

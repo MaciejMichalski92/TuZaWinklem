@@ -2,6 +2,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+to make a new component automatically, run the command:
+
+```
+npm run component <file(atoms||molecules||organisms||layouts)> <componentName>
+```
+
 First, run the development server:
 
 ```bash

@@ -7,9 +7,9 @@ import { Provider } from 'react-redux';
 import {
   AppStore,
   RootState,
-  setupStore
+  setupStore,
+  store
 } from '../../src/app/store';
-import { store } from '../../src/app/store';
 
 interface ExtendedRenderOptions
   extends Omit<RenderOptions, 'queries'> {
