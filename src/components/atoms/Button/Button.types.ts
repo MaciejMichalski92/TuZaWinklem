@@ -1,1 +1,1 @@
-export interface ButtonProps {};
+export interface ButtonProps {}
