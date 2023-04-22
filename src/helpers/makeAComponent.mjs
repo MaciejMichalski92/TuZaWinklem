@@ -7,7 +7,7 @@ const componentName = process.argv[3] || 'NewComponent';
 const contentIndex = `export { ${componentName} as default } from './${componentName}';`;
 const contentStyled = `.${componentName}{\r\n}`;
 const contentTypes = `export interface ${componentName}Props {};`;
-const contentComponent = `import { ${componentName}Props } from './${componentName}.types';\r\nimport style${componentName} from './${componentName}.module.scss';\r\n\r\nexport const ${componentName} = ({}: ${componentName}Props) => {};`;
+const contentComponent = `import { ${componentName}Props } from './${componentName}.types';\r\nimport style from './${componentName}.module.scss';\r\n\r\nexport const ${componentName} = ({}: ${componentName}Props) => {};`;
 
 const createDir = dirPath => {
   fs.mkdirSync(
