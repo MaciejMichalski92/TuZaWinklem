@@ -2,8 +2,8 @@ import { Button } from './Button';
 import {
   screen,
   render,
-  cleanup,
-  logRoles
+  logRoles,
+  fireEvent
 } from '@testing-library/react';
 import text from '../../../config/texts';
 
@@ -13,21 +13,30 @@ const {
   }
 } = text;
 
+const mockedFunction = jest.fn();
+
 describe('Button', () => {
   beforeEach(() => {
     render(
-      <div data-testid="test">
-        Wejdź
-        <Button ariaLabel={'label'} handleClick={jest.fn()}>
-          {buttonText}
-        </Button>
-      </div>
+      <Button
+        data-testid="button"
+        ariaLabel={label}
+        handleClick={mockedFunction}
+      >
+        {buttonText}
+      </Button>
     );
-    screen.debug();
-    cleanup();
   });
+
   it('should render', () => {
-    // const btn = screen.getByText('test');
-    // expect(btn).toBeVisible();
+    const btn = screen.getByTestId('button');
+    expect(btn).toBeInTheDocument();
+  });
+
+  it('should invoke function after user click', () => {
+    const btn = screen.getByTestId('button');
+    expect(mockedFunction).toBeCalledTimes(0);
+    fireEvent.click(btn);
+    expect(mockedFunction).toBeCalledTimes(1);
   });
 });
