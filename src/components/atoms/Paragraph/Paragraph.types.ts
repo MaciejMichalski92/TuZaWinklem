@@ -1,1 +1,1 @@
-export interface ParagraphProps {};
+export interface ParagraphProps {}

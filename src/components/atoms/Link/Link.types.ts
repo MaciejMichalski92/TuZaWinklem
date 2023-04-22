@@ -1,1 +1,1 @@
-export interface LinkProps {};
+export interface LinkProps {}

@@ -1,1 +1,1 @@
-export interface InputProps {};
+export interface InputProps {}

@@ -1,1 +1,1 @@
-export interface ImageProps {};
+export interface ImageProps {}
