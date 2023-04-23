@@ -5,11 +5,14 @@ export const Button = ({
   classes,
   children,
   handleClick,
+  isPrimary = true,
   ariaLabel
 }: ButtonProps) => (
   <button
     data-testid="button"
-    className={`${classes ? classes : ''} ${style.Button}`}
+    className={`${classes ? classes : ''} ${style.Button} ${
+      isPrimary ? 'primaryBtn' : 'secondaryBtn'
+    }`}
     name={ariaLabel}
     aria-label={ariaLabel}
     onClick={handleClick}

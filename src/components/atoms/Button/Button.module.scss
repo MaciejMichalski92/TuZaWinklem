@@ -1,2 +1,14 @@
 .Button {
+  border: none;
+  @apply rounded;
+
+  &.primaryBtn {
+    @apply bg-main;
+    @apply text-font-white;
+  }
+
+  &.secondaryBtn {
+    @apply bg-background;
+    @apply text-font;
+  }
 }

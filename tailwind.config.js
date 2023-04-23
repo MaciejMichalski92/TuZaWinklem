@@ -21,7 +21,8 @@ module.exports = {
       black: '#111',
       font: {
         DEFAULT: '#222',
-        secondary: '#9C9999'
+        white: '#FFF',
+        inActive: '#9C9999'
       },
       white: '#FFF',
       main: {

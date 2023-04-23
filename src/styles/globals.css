@@ -15,8 +15,8 @@ body {
 }
 
 body {
-  background-color: theme(colors.background);
-  font-family: theme(fontFamily.sans);
+  @apply bg-background;
+  @apply font-sans;
 }
 
 a {

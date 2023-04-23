@@ -1,10 +1,5 @@
 import { Button } from './Button';
-import {
-  screen,
-  render,
-  logRoles,
-  fireEvent
-} from '@testing-library/react';
+import { screen, render, fireEvent } from '@testing-library/react';
 import text from '../../../config/texts';
 
 const {
