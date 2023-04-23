@@ -27,4 +27,15 @@ export const Secondary = {
     children: buttonText
   }
 };
+
+export const Disabled = {
+  args: {
+    ariaLabel: label,
+    handleClick: () => console.log('click'),
+    isPrimary: false,
+    children: buttonText,
+    isDisabled: true
+  }
+};
+
 export default meta;

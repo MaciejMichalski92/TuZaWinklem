@@ -6,13 +6,15 @@ export const Button = ({
   children,
   handleClick,
   isPrimary = true,
-  ariaLabel
+  ariaLabel,
+  isDisabled = false
 }: ButtonProps) => (
   <button
     data-testid="button"
     className={`${classes ? classes : ''} ${style.Button} ${
-      isPrimary ? 'primaryBtn' : 'secondaryBtn'
-    }`}
+      isPrimary ? style.primaryBtn : style.secondaryBtn
+    } ${isDisabled ? style.disabled : ''}`}
+    disabled={isDisabled}
     name={ariaLabel}
     aria-label={ariaLabel}
     onClick={handleClick}

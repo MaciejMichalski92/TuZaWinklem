@@ -6,4 +6,5 @@ export interface ButtonProps extends Aria {
   handleClick: ReactEventHandler;
   classes?: string;
   isPrimary?: boolean;
+  isDisabled?: boolean;
 }

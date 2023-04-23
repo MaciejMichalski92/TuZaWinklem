@@ -1,14 +1,36 @@
 .Button {
   border: none;
-  @apply rounded;
+  @apply rounded-lg;
+  @apply px-5;
+  @apply py-2;
+  transition: 0.2s;
+  font-weight: 700;
+}
 
-  &.primaryBtn {
-    @apply bg-main;
-    @apply text-font-white;
+.primaryBtn {
+  @apply bg-main;
+  @apply text-font-white;
+
+  &:hover {
+    @apply bg-main-darken;
   }
+}
 
-  &.secondaryBtn {
+.secondaryBtn {
+  @apply bg-background;
+  @apply text-font;
+
+  &:hover {
+    @apply bg-main-lighten;
+  }
+}
+
+.disabled {
+  @apply bg-font-inActive;
+  @apply text-font-white;
+
+  &:hover {
     @apply bg-background;
-    @apply text-font;
+    @apply text-font-inActive;
   }
 }
