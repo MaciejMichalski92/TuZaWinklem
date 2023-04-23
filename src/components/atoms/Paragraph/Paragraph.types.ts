@@ -1,1 +1,6 @@
-export interface ParagraphProps {}
+import { ReactNode } from 'react';
+
+export interface ParagraphProps {
+  children: ReactNode;
+  classes?: string;
+}

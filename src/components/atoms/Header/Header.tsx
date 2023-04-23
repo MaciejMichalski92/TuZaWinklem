@@ -7,7 +7,9 @@ export const Header = ({
   isBold = true
 }: HeaderProps) => (
   <HeaderType
-    className={`text-font ${isBold ? 'font-bold' : ''} ${classes}`}
+    className={`text-font ${isBold ? 'font-bold' : ''} ${
+      classes ? classes : ''
+    }`}
   >
     {children}
   </HeaderType>

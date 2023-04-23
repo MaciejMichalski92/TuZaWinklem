@@ -1,4 +1,5 @@
 import { ParagraphProps } from './Paragraph.types';
-import styleParagraph from './Paragraph.module.scss';
 
-export const Paragraph = ({}: ParagraphProps) => {};
+export const Paragraph = ({ children, classes }: ParagraphProps) => (
+  <p className={`${classes ? classes : ''}`}>{children}</p>
+);
