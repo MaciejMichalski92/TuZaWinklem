@@ -1,6 +1,14 @@
 import { HeaderProps } from './Header.types';
-import style from './Header.module.scss';
 
-export const Header = ({ HeaderType, children }: HeaderProps) => (
-  <HeaderType className={style.Header}>{children}</HeaderType>
+export const Header = ({
+  HeaderType,
+  children,
+  classes,
+  isBold = true
+}: HeaderProps) => (
+  <HeaderType
+    className={`text-font ${isBold ? 'font-bold' : ''} ${classes}`}
+  >
+    {children}
+  </HeaderType>
 );
