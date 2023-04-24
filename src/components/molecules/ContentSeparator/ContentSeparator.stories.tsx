@@ -7,5 +7,4 @@ const meta: Meta<typeof ContentSeparator> = {
   component: ContentSeparator
 };
 
-
 export default meta;

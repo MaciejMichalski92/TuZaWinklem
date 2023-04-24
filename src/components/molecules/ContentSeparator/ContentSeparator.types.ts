@@ -1,1 +1,1 @@
-export interface ContentSeparatorProps {};
+export interface ContentSeparatorProps {}
