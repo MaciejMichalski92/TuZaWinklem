@@ -6,6 +6,15 @@ const dirPath = `/src/components/${
 const componentName = process.argv[3] || 'NewComponent';
 const contentIndex = `export { ${componentName} as default } from './${componentName}';`;
 const contentStyled = `.${componentName}{\r\n}`;
+const contentStories = `import type { Meta } from '@storybook/react';\r\n
+import { ${componentName} } from './${componentName}';\r\n
+const meta: Meta<typeof ${componentName}> = {
+  title: '${componentName}',
+  component: ${componentName}
+};
+\r\n
+export default meta;
+`;
 const contentTypes = `export interface ${componentName}Props {};`;
 const contentComponent = `import { ${componentName}Props } from './${componentName}.types';\r\nimport style from './${componentName}.module.scss';\r\n\r\nexport const ${componentName} = ({}: ${componentName}Props) => {};`;
 
@@ -36,3 +45,4 @@ createFile(dirPath, 'index.ts', contentIndex);
 createFile(dirPath, `${componentName}.tsx`, contentComponent);
 createFile(dirPath, `${componentName}.types.ts`, contentTypes);
 createFile(dirPath, `${componentName}.module.scss`, contentStyled);
+createFile(dirPath, `${componentName}.stories.tsx`, contentStories);
