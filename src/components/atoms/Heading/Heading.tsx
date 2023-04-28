@@ -1,16 +1,16 @@
-import { HeaderProps } from './Header.types';
+import { HeadingProps } from './Heading.types';
 
-export const Header = ({
-  HeaderType,
+export const Heading = ({
+  HeadingType,
   children,
   classes,
   isBold = true
-}: HeaderProps) => (
-  <HeaderType
+}: HeadingProps) => (
+  <HeadingType
     className={`text-font ${isBold ? 'font-bold' : ''} ${
       classes ? classes : ''
     }`}
   >
     {children}
-  </HeaderType>
+  </HeadingType>
 );

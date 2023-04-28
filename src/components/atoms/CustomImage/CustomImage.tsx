@@ -18,14 +18,15 @@ export const CustomImage = ({
 );
 
 export const ImageWrapper = ({
-  children,
+  imgSrc,
+  imgAlt,
   width,
-  height
+  height = 'auto'
 }: ImageWrapperProps) => (
   <div
-    style={{ width: width, height: 'auto' }}
+    style={{ width: width, height }}
     className={style.ImageWrapper}
   >
-    {children}
+    <Image src={imgSrc} alt={imgAlt} fill sizes="100vw" />
   </div>
 );

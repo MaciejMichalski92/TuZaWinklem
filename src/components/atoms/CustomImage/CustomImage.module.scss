@@ -1,10 +1,9 @@
 .ImageWrapper {
-  picture {
-    width: 100%;
-  }
+  overflow: hidden;
+  position: relative;
 
   img {
-    width: 100%;
     object-fit: cover;
+    object-position: center;
   }
 }

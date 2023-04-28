@@ -5,7 +5,8 @@ export interface CustomImageProps {
 }
 
 export interface ImageWrapperProps {
-  children: ReactNode;
+  imgSrc: string;
+  imgAlt: string;
   width: string;
   height?: string;
 }

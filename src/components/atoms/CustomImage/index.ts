@@ -1,1 +1,1 @@
-export { CustomImage as default } from './CustomImage';
+export { CustomImage as default, ImageWrapper } from './CustomImage';

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { CustomLink } from './Link';
-import { Header } from '@/components/atoms/Header/Header';
+import { Header } from '@/components/atoms/Heading/Heading';
 
 const meta: Meta<typeof CustomLink> = {
   title: 'Links',
