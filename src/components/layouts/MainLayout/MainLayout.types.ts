@@ -1,1 +1,1 @@
-export interface MainLayoutProps {};
+export interface MainLayoutProps {}

@@ -7,5 +7,4 @@ const meta: Meta<typeof MainLayout> = {
   component: MainLayout
 };
 
-
 export default meta;
