@@ -21,11 +21,12 @@ export const ImageWrapper = ({
   imgSrc,
   imgAlt,
   width,
-  height = 'auto'
+  height = 'auto',
+  classes
 }: ImageWrapperProps) => (
   <div
     style={{ width: width, height }}
-    className={style.ImageWrapper}
+    className={`${style.ImageWrapper} ${classes ? classes : ''}`}
   >
     <Image src={imgSrc} alt={imgAlt} fill sizes="100vw" />
   </div>

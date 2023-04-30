@@ -9,4 +9,5 @@ export interface ImageWrapperProps {
   imgAlt: string;
   width: string;
   height?: string;
+  classes?: string;
 }

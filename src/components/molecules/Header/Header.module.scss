@@ -1,5 +1,13 @@
 .Header {
   position: relative;
+
+  div:first-of-type {
+    @apply bg-font;
+  }
+
+  img {
+    opacity: 0.7;
+  }
 }
 
 .Text {
@@ -7,9 +15,11 @@
   top: 50%;
   left: 5%;
   transform: translateY(-50%);
+  @apply text-white;
 }
 
 .Title {
+  text-transform: capitalize;
 }
 
 .Subtitle {

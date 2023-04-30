@@ -11,6 +11,7 @@ export const Header = ({
 }: HeaderProps) => (
   <header className={style.Header}>
     <ImageWrapper
+      classes="imgWrapper"
       imgAlt={imgAlt}
       imgSrc={imgSrc}
       width="100%"

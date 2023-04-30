@@ -1,0 +1,7 @@
+/* !important is due to style overlapping in moduless*/
+
+.show {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  transform: translateX(0) !important;
+}
