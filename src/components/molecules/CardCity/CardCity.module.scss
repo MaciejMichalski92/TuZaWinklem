@@ -1,0 +1,34 @@
+.CardCity {
+  position: relative;
+  cursor: pointer;
+  background: linear-gradient(90deg, #222 0%, #555 54%, #fff 100%);
+  img {
+    opacity: 0.8;
+    transition: 0.3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.Text {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  @apply text-black;
+  text-align: right;
+  @apply font-bold;
+}
+
+.Title {
+  @apply font-bold;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+}
+
+.Subtitle {
+  font-size: 1.5rem;
+  @apply text-font;
+}

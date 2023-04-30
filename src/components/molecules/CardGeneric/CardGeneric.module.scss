@@ -1,0 +1,71 @@
+.CardGeneric {
+  position: relative;
+
+  a {
+    position: relative;
+    @apply py-4;
+    @apply px-12;
+    @apply bg-main-darken;
+    @apply rounded-lg;
+    text-transform: uppercase;
+    @apply text-font-white;
+  }
+
+  a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    transition: 0.3s;
+  }
+
+  a:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 35%;
+    transform: translateY(-50%) rotate(90deg);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+    transition: 0.3s;
+  }
+
+  a:hover:before {
+    right: 40%;
+  }
+
+  a:hover:after {
+    right: 25%;
+  }
+}
+
+.Text {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  text-align: right;
+  @apply text-black;
+  @apply font-bold;
+}
+
+.Title {
+  @apply font-bold;
+  @apply mb-10;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+}
+
+.Subtitle {
+  font-size: 1.5rem;
+  @apply text-font;
+}
