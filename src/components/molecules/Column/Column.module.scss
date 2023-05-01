@@ -1,14 +1,23 @@
 .Column {
   width: 100%;
+  @apply px-5;
+  @apply py-7;
 }
 
 .ColumnTitle {
   @apply text-font-white;
   @apply font-bold;
   @apply text-2xl;
+  @apply mb-5;
 }
 
 .ColumnContent {
+  @apply text-font-inActive;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+
+  *:hover {
+    @apply text-font-white;
+  }
 }
