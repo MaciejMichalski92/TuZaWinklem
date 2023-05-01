@@ -6,7 +6,7 @@ import { CustomImage, ImageWrapper as ImgWrap } from './CustomImage';
 import imageFile from './../../../../public/testImage.jpg';
 
 const meta: Meta<typeof CustomImage> = {
-  title: 'CustomImage',
+  title: 'Atoms/CustomImage',
   component: CustomImage
 };
 

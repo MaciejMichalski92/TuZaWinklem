@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { CustomLink } from './Link';
-import { Header } from '@/components/atoms/Heading/Heading';
+import { Heading } from '@/components/atoms/Heading/Heading';
 
 const meta: Meta<typeof CustomLink> = {
-  title: 'Links',
+  title: 'Atoms/Links',
   component: CustomLink,
   args: {
     href: '#'
@@ -18,9 +18,9 @@ export const Default = () => (
   </CustomLink>
 );
 
-export const HeaderLink: Story = {
+export const HeadingLink: Story = {
   args: {
-    children: <Header HeaderType="h2">Lol</Header>,
+    children: <Heading HeadingType="h2">Lol</Heading>,
     classes: 'testClass'
   }
 };

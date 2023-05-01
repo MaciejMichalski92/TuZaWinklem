@@ -9,7 +9,7 @@ const {
 } = text;
 
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: 'Atoms/Button',
   component: Button
 };
 

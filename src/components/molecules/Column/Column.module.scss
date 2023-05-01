@@ -1,0 +1,14 @@
+.Column {
+  width: 100%;
+}
+
+.ColumnTitle {
+  @apply text-font-white;
+  @apply font-bold;
+  @apply text-2xl;
+}
+
+.ColumnContent {
+  display: flex;
+  flex-direction: column;
+}

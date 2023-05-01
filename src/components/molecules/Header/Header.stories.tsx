@@ -4,7 +4,7 @@ import { Header } from './Header';
 import imageFile from '../../../../public/testImage.jpg';
 
 const meta: Meta<typeof Header> = {
-  title: 'Header',
+  title: 'Molecules/Header',
   component: Header
 };
 

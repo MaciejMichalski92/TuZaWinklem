@@ -4,7 +4,7 @@ import { CardCity } from './CardCity';
 import imageFile from '../../../../public/testImage.jpg';
 
 const meta: Meta<typeof CardCity> = {
-  title: 'CardCity',
+  title: 'Molecules/CardCity',
   component: CardCity
 };
 

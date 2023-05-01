@@ -5,7 +5,7 @@ import CardCity from '@/components/molecules/CardCity';
 import imageFile from '../../../../public/testImage.jpg';
 
 const meta: Meta<typeof CardsFlex> = {
-  title: 'CardsFlex',
+  title: 'Organisms/CardsFlex',
   component: CardsFlex
 };
 

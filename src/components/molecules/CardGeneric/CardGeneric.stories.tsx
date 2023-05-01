@@ -4,7 +4,7 @@ import { CardGeneric } from './CardGeneric';
 import imageFile from '../../../../public/testImage.jpg';
 
 const meta: Meta<typeof CardGeneric> = {
-  title: 'CardGeneric',
+  title: 'Molecules/CardGeneric',
   component: CardGeneric
 };
 
