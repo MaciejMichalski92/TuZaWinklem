@@ -10,10 +10,17 @@ import {
   styleShowFromLeft
 } from '@/components/molecules/AnimationWrapper/childrenStyles';
 import Image from 'next/image';
+import { GetServerSideProps } from 'next';
+import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
 
-export default function Home() {
+export default function Home(props: {
+  device: string;
+  isBot: boolean;
+}) {
   const counterValue = useAppSelector(state => state.counter.value);
   const dispatch = useAppDispatch();
+
+  console.log(props);
 
   function click() {
     dispatch(increment());
@@ -68,3 +75,16 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({
+  req: { headers }
+}) => {
+  const { device, isBot } = getDeviceInfoFromClient(headers);
+
+  return {
+    props: {
+      device,
+      isBot
+    }
+  };
+};

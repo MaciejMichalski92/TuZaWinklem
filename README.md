@@ -18,6 +18,24 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Caveats and tips
 
+- **For using Layout with dynamic components based on UserAgent device:**
+
+```js
+export const getServerSideProps: GetServerSideProps = async ({
+  req: { headers }
+}) => {
+  const { device, isBot } = getDeviceInfoFromClient(headers);
+
+  return {
+    props: {
+      device,
+      isBot
+    }
+  };
+};
+
+```
+
 ### Testing
 
 - [common mistakes](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
