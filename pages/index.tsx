@@ -12,6 +12,7 @@ import {
 import Image from 'next/image';
 import { GetServerSideProps } from 'next';
 import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
+import Footer from '@/components/organisms/Footer';
 
 export default function Home(props: {
   device: string;
@@ -50,15 +51,6 @@ export default function Home(props: {
         <h2 style={styleShowFromLeft}>Test Anim</h2>
       </AnimationWrapper>
       <ContentSeparator />
-      <ContentSeparator />
-      <AnimationWrapper animationClass="show">
-        <p style={styleShowFromRight}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Veniam reprehenderit quod quasi qui possimus eos
-          repellendus impedit, neque maxime molestias!
-        </p>
-      </AnimationWrapper>
-      <ContentSeparator />
       <AnimationWrapper animationClass="show">
         <Image
           style={styleShowFromRight}
@@ -68,10 +60,55 @@ export default function Home(props: {
           height={400}
         />
       </AnimationWrapper>
-      <ContentSeparator /> <ContentSeparator />
-      <ContentSeparator /> <ContentSeparator />
-      <ContentSeparator /> <ContentSeparator />
       <ContentSeparator />
+      <Footer
+        contactLinks={[
+          {
+            id: '56566ddd7',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '1',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '2',
+            href: '#',
+            text: 'Lorem'
+          }
+        ]}
+        infoLinks={[
+          {
+            id: '43',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '4444',
+            href: '#',
+            text: 'Lorem'
+          }
+        ]}
+        offertLinks={[
+          {
+            id: '555',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '7777',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '4',
+            href: '#',
+            text: 'Lorem'
+          }
+        ]}
+      />
     </>
   );
 }

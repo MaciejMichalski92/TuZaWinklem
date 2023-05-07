@@ -15,9 +15,12 @@
   @apply text-font-inActive;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 
-  *:hover {
+  a {
+    @apply px-5;
+  }
+
+  a:hover {
     @apply text-font-white;
   }
 }

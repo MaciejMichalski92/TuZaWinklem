@@ -5,4 +5,9 @@ export interface PageTexts {
       label: 'Wejdź';
     };
   };
+  footer: {
+    infoTitle: 'Informacje';
+    contactTitle: 'Skontaktuj się z nami';
+    offertTitle: 'Oferta';
+  };
 }

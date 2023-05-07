@@ -1,0 +1,19 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @apply md:flex-row;
+  @apply max-w-screen-xl;
+  @apply mx-auto;
+
+  div,
+  nav {
+    @apply sm:w-1/2;
+    @apply md:w-1/3;
+  }
+
+  ul {
+    list-style: none;
+  }
+}

@@ -4,5 +4,6 @@
   "editor.formatOnSave": true,
   "emmet.includeLanguages": {
     "postcss": "css"
-  }
+  },
+  "files.autoSave": "onWindowChange"
 }
