@@ -1,7 +1,7 @@
 import type { Meta } from '@storybook/react';
 
 import { Header } from './Header';
-import imageFile from '../../../../public/testImage.jpg';
+import imageFile from '@public/testImage.jpg';
 
 const meta: Meta<typeof Header> = {
   title: 'Molecules/Header',

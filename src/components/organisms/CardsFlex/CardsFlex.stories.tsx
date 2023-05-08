@@ -2,7 +2,7 @@ import type { Meta } from '@storybook/react';
 
 import { CardsFlex } from './CardsFlex';
 import CardCity from '@/components/molecules/CardCity';
-import imageFile from '../../../../public/testImage.jpg';
+import imageFile from '@public/testImage.jpg';
 
 const meta: Meta<typeof CardsFlex> = {
   title: 'Organisms/CardsFlex',

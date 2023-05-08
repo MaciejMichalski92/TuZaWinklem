@@ -1,7 +1,7 @@
 import type { Meta } from '@storybook/react';
 
 import { CardCity } from './CardCity';
-import imageFile from '../../../../public/testImage.jpg';
+import imageFile from '@public/testImage.jpg';
 
 const meta: Meta<typeof CardCity> = {
   title: 'Molecules/CardCity',

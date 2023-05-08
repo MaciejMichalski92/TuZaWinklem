@@ -7,7 +7,9 @@ export const Column = ({
   isNavigation = false
 }: ColumnProps) => (
   <div className={style.Column}>
-    <h2 className={style.ColumnTitle}>{columnTitle}</h2>
+    {columnTitle && (
+      <h2 className={style.ColumnTitle}>{columnTitle}</h2>
+    )}
     {/* toDo add Li atom */}
     {isNavigation ? (
       <nav className={style.ColumnContent}>

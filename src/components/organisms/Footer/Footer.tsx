@@ -5,9 +5,11 @@ import { pageTexts } from '@/config/texts/texts';
 import ListItem from '@/components/atoms/ListItem';
 import CustomLink from '@/components/atoms/CustomLink';
 import { useMemo } from 'react';
+import { CustomImage } from '@/components/atoms/CustomImage/CustomImage';
+import imageFile from '@public/testLogo.png';
 
 const {
-  footer: { infoTitle, contactTitle, offertTitle }
+  footer: { infoTitle, contactTitle, offertTitle, logoAlt }
 } = pageTexts;
 
 export const Footer = ({
@@ -47,6 +49,9 @@ export const Footer = ({
 
   return (
     <footer className={style.Footer}>
+      <Column>
+        {<CustomImage src={imageFile} alt={logoAlt} />}
+      </Column>
       <Column isNavigation columnTitle={contactTitle}>
         {contactLinksMapped}
       </Column>

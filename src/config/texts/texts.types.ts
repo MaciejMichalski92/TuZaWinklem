@@ -7,7 +7,8 @@ export interface PageTexts {
   };
   footer: {
     infoTitle: 'Informacje';
-    contactTitle: 'Skontaktuj się z nami';
+    contactTitle: 'Skontaktuj się z\u00A0nami';
     offertTitle: 'Oferta';
+    logoAlt: 'Tu Za Winklem logo';
   };
 }

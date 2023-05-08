@@ -1,7 +1,7 @@
 import type { Meta } from '@storybook/react';
 
 import { CardGeneric } from './CardGeneric';
-import imageFile from '../../../../public/testImage.jpg';
+import imageFile from '@public/testImage.jpg';
 
 const meta: Meta<typeof CardGeneric> = {
   title: 'Molecules/CardGeneric',

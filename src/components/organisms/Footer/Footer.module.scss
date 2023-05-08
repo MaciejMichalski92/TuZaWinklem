@@ -9,6 +9,7 @@
 
   div,
   nav {
+    min-height: 300px;
     @apply sm:w-1/2;
     @apply md:w-1/3;
   }

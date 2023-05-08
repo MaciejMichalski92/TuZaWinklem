@@ -1,7 +1,7 @@
 import { increment } from '@/app/feature/counter.slice';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import Button from '@/components/atoms/Button';
-import imageFile from '../public/testImage.jpg';
+import imageFile from '@public/testImage.jpg';
 import ContentSeparator from '@/components/atoms/ContentSeparator';
 import Header from '@/components/molecules/Header';
 import AnimationWrapper from '@/components/molecules/AnimationWrapper';

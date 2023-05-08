@@ -2,8 +2,7 @@ import type { Meta } from '@storybook/react';
 
 import { CustomImage, ImageWrapper as ImgWrap } from './CustomImage';
 
-// ToDo: ts path is not working with the storybook. Fix it
-import imageFile from './../../../../public/testImage.jpg';
+import imageFile from '@public/testImage.jpg';
 
 const meta: Meta<typeof CustomImage> = {
   title: 'Atoms/CustomImage',
