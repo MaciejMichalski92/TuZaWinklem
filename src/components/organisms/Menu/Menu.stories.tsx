@@ -7,5 +7,4 @@ const meta: Meta<typeof Menu> = {
   component: Menu
 };
 
-
 export default meta;

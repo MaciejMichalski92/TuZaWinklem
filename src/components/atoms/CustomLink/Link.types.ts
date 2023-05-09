@@ -4,4 +4,5 @@ export interface LinkProps {
   children: ReactNode;
   isBold?: boolean;
   classes?: string;
+  role?: string;
 }

@@ -6,6 +6,7 @@ export interface NavigationItem {
   href?: string;
   title: string;
   subMenu?: SubMenuItem[];
+  submenuRole?: string;
 }
 
 export interface MenuProps {}

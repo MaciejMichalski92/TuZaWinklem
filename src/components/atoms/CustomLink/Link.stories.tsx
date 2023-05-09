@@ -13,7 +13,7 @@ const meta: Meta<typeof CustomLink> = {
 type Story = StoryObj<typeof CustomLink>;
 
 export const Default = () => (
-  <CustomLink href="#" isBold>
+  <CustomLink href="#" isBold role="menuitem">
     Link Lorem
   </CustomLink>
 );
