@@ -1,2 +1,39 @@
 .MobileMenu {
+  @apply text-2xl;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  @apply bg-main;
+  @apply text-font-white;
+  text-align: right;
+  text-transform: capitalize;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
+
+  span {
+    @apply font-bold;
+  }
+}
+
+.MenuBar {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 100%;
+}
+
+.Submenu {
+  position: absolute;
+  top: 0;
+  right: -100vw;
+  width: 100vw;
+  height: 100%;
+  padding: 10px;
+  @apply bg-main-darken;
+  overflow: hidden;
+  transition: 0.3s;
 }

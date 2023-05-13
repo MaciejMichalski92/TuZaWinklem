@@ -13,6 +13,7 @@ import Image from 'next/image';
 import { GetServerSideProps } from 'next';
 import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
 import Footer from '@/components/organisms/Footer';
+import MobileMenu from '@/components/molecules/MobileMenu';
 
 export default function Home(props: {
   device: string;
@@ -29,6 +30,27 @@ export default function Home(props: {
 
   return (
     <>
+      <MobileMenu
+        navigationItems={[
+          { title: 'Strona główna', href: '#' },
+          {
+            title: 'Targi',
+            subMenu: [
+              { href: '#', title: 'Wszystkie Targi' },
+              { title: 'Mazowsze', href: '#' }
+            ],
+            submenuRole: 'Targi'
+          },
+          {
+            title: 'Locals',
+            subMenu: [
+              { href: '#', title: 'Wszyscy Localsi' },
+              { title: 'Mazowsze', href: '#' }
+            ],
+            submenuRole: 'Locals'
+          }
+        ]}
+      />
       <Header
         title="Lorem"
         subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptatem."
