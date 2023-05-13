@@ -8,27 +8,29 @@ const meta: Meta<typeof DesktopMenu> = {
 };
 
 export const Default = () => (
-  <DesktopMenu
-    navigationItems={[
-      { title: 'Strona główna', href: '#' },
-      {
-        title: 'Targi',
-        subMenu: [
-          { href: '#', title: 'Wszystkie Targi' },
-          { title: 'Mazowsze', href: '#' }
-        ],
-        submenuRole: 'Targi'
-      },
-      {
-        title: 'Locals',
-        subMenu: [
-          { href: '#', title: 'Wszyscy Localsi' },
-          { title: 'Mazowsze', href: '#' }
-        ],
-        submenuRole: 'Locals'
-      }
-    ]}
-  />
+  <div style={{ marginBottom: '200px' }}>
+    <DesktopMenu
+      navigationItems={[
+        { title: 'Strona główna', href: '#' },
+        {
+          title: 'Targi',
+          subMenu: [
+            { href: '#', title: 'Wszystkie Targi' },
+            { title: 'Mazowsze', href: '#' }
+          ],
+          submenuRole: 'Targi'
+        },
+        {
+          title: 'Locals',
+          subMenu: [
+            { href: '#', title: 'Wszyscy Localsi' },
+            { title: 'Mazowsze', href: '#' }
+          ],
+          submenuRole: 'Locals'
+        }
+      ]}
+    />
+  </div>
 );
 
 export default meta;

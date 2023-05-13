@@ -1,5 +1,52 @@
 .DesktopMenu {
+  @apply text-font-white;
+  text-align: right;
+  text-transform: capitalize;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
+
+  span {
+    cursor: default;
+    @apply font-bold;
+  }
 }
 
 .MenuBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  width: 100%;
+
+  & > li {
+    padding: 10px 15px;
+    position: relative;
+  }
+
+  & > li:hover ul {
+    display: block;
+  }
+}
+
+.Submenu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  min-width: max-content;
+  @apply bg-main-darken;
+  @apply rounded-lg;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  li {
+    padding: 10px 0px;
+  }
+
+  li:hover {
+    @apply bg-main;
+  }
+
+  li a {
+    padding: 10px 15px;
+  }
 }

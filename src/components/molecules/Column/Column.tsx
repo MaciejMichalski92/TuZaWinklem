@@ -10,7 +10,6 @@ export const Column = ({
     {columnTitle && (
       <h2 className={style.ColumnTitle}>{columnTitle}</h2>
     )}
-    {/* toDo add Li atom */}
     {isNavigation ? (
       <nav className={style.ColumnContent}>
         <ul>{children}</ul>

@@ -1,6 +1,7 @@
 import { DesktopMenuProps } from './DesktopMenu.types';
 import style from './DesktopMenu.module.scss';
 import { CustomLink } from '@/components/atoms/CustomLink/Link';
+import { ListItem } from '@/components/atoms/ListItem/ListItem';
 
 export const DesktopMenu = ({
   navigationItems
@@ -9,27 +10,26 @@ export const DesktopMenu = ({
     ({ href, title, subMenu, submenuRole }, idx) => {
       if (href && !subMenu)
         return (
-          // toDo make LI atom
-          <li role="none" key={idx + title}>
+          <ListItem role="none" key={idx + title}>
             <CustomLink href={href} role="menuitem">
               {title}
             </CustomLink>
-          </li>
+          </ListItem>
         );
       else
         return (
-          <li role="none">
+          <ListItem role="none">
             <span>{title}</span>
-            <ul role={submenuRole}>
+            <ul className={style.Submenu} role={submenuRole}>
               {subMenu?.map(({ title, href }) => (
-                <li role="none" key={idx + title}>
-                  <CustomLink isBold href={href} role="menuitem">
+                <ListItem role="none" key={idx + title}>
+                  <CustomLink href={href} role="menuitem">
                     {title}
                   </CustomLink>
-                </li>
+                </ListItem>
               ))}
             </ul>
-          </li>
+          </ListItem>
         );
     }
   );
