@@ -13,7 +13,7 @@ import Image from 'next/image';
 import { GetServerSideProps } from 'next';
 import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
 import Footer from '@/components/organisms/Footer';
-import MobileMenu from '@/components/molecules/MobileMenu';
+import Menu from '@/components/organisms/Menu';
 
 export default function Home(props: {
   device: string;
@@ -22,15 +22,16 @@ export default function Home(props: {
   const counterValue = useAppSelector(state => state.counter.value);
   const dispatch = useAppDispatch();
 
-  console.log(props);
-
   function click() {
     dispatch(increment());
   }
 
+  const isMobile = props.device === 'mobile';
+
   return (
     <>
-      <MobileMenu
+      <Menu
+        isMobile={isMobile}
         navigationItems={[
           { title: 'Strona główna', href: '#' },
           {

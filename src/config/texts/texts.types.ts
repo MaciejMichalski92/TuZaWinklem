@@ -11,4 +11,8 @@ export interface PageTexts {
     offertTitle: 'Oferta';
     logoAlt: 'Tu Za Winklem logo';
   };
+  menu: {
+    backBtn: 'Powrót';
+    mainMenuAria: 'Tu Za Winklem, główne menu';
+  };
 }

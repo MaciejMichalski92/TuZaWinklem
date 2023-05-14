@@ -2,9 +2,14 @@ import { DesktopMenuProps } from './DesktopMenu.types';
 import style from './DesktopMenu.module.scss';
 import { CustomLink } from '@/components/atoms/CustomLink/Link';
 import { ListItem } from '@/components/atoms/ListItem/ListItem';
+import { pageTexts } from '@/config/texts/texts';
 
+const {
+  menu: { mainMenuAria }
+} = pageTexts;
 export const DesktopMenu = ({
-  navigationItems
+  navigationItems,
+  isScrolledDown = false
 }: DesktopMenuProps) => {
   const menuItems = navigationItems.map(
     ({ href, title, subMenu, submenuRole }, idx) => {
@@ -36,8 +41,10 @@ export const DesktopMenu = ({
 
   return (
     <nav
-      aria-label="Tu Za Winklem, główne menu"
-      className={style.DesktopMenu}
+      aria-label={mainMenuAria}
+      className={`${style.DesktopMenu} ${
+        isScrolledDown ? 'bg-main' : 'bg-opacity-30 bg-font-inActive'
+      }`}
     >
       <ul role="menubar" className={style.MenuBar}>
         {menuItems}

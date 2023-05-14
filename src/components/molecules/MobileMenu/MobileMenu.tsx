@@ -2,9 +2,20 @@ import { MobileMenuProps } from './MobileMenu.types';
 import style from './MobileMenu.module.scss';
 import { CustomLink } from '@/components/atoms/CustomLink/Link';
 import { ListItem } from '@/components/atoms/ListItem/ListItem';
-import { RefObject, useRef } from 'react';
+import { RefObject, useRef, useState } from 'react';
+import { BsArrowBarLeft } from '@react-icons/all-files/bs/BsArrowBarLeft';
+import { BsArrowBarRight } from '@react-icons/all-files/bs/BsArrowBarRight';
+import { BiMenu } from '@react-icons/all-files/bi/BiMenu';
+import { MdCancel } from '@react-icons/all-files/md/MdCancel';
+import { pageTexts } from '@/config/texts/texts';
+
+const {
+  menu: { backBtn, mainMenuAria }
+} = pageTexts;
 
 export const MobileMenu = ({ navigationItems }: MobileMenuProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleGoBackToMenu = (ref: RefObject<HTMLUListElement>) => {
     if (ref.current) ref.current.style.right = '-100vw';
   };
@@ -15,7 +26,7 @@ export const MobileMenu = ({ navigationItems }: MobileMenuProps) => {
 
   const menuItems = navigationItems.map(
     ({ href, title, subMenu, submenuRole }, idx) => {
-      // toDo change the implementation
+      // toDo change the implementation?
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const submenuRef = useRef<HTMLUListElement>(null);
 
@@ -30,8 +41,11 @@ export const MobileMenu = ({ navigationItems }: MobileMenuProps) => {
       else
         return (
           <ListItem role="none">
-            <span onClick={() => handleGoToSubmenu(submenuRef)}>
-              {title}
+            <span
+              aria-label={title}
+              onClick={() => handleGoToSubmenu(submenuRef)}
+            >
+              {title} <BsArrowBarRight />
             </span>
             <ul
               ref={submenuRef}
@@ -40,10 +54,10 @@ export const MobileMenu = ({ navigationItems }: MobileMenuProps) => {
             >
               <ListItem role="none" key={idx + title}>
                 <button
-                  aria-label="Powrót"
+                  aria-label={backBtn}
                   onClick={() => handleGoBackToMenu(submenuRef)}
                 >
-                  Powrót
+                  <BsArrowBarLeft size="1.5em" />
                 </button>
               </ListItem>
               {subMenu?.map(({ title, href }) => (
@@ -60,13 +74,30 @@ export const MobileMenu = ({ navigationItems }: MobileMenuProps) => {
   );
 
   return (
-    <nav
-      aria-label="Tu Za Winklem, główne menu"
-      className={style.MobileMenu}
-    >
-      <ul role="menubar" className={style.MenuBar}>
-        {menuItems}
-      </ul>
-    </nav>
+    <>
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          aria-label="Menu"
+          className={style.MenuIcon}
+        >
+          <BiMenu size="2.5em" />
+        </button>
+      )}
+      {isOpen && (
+        <nav aria-label={mainMenuAria} className={style.MobileMenu}>
+          <ul role="menubar" className={style.MenuBar}>
+            <button
+              className={style.MenuExitIcon}
+              onClick={() => setIsOpen(false)}
+            >
+              <MdCancel size="1.5em" />
+            </button>
+            {menuItems}
+          </ul>
+          {/* toDo add social media icons with links */}
+        </nav>
+      )}
+    </>
   );
 };

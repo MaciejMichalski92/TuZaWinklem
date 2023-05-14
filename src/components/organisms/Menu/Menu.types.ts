@@ -9,4 +9,7 @@ export interface NavigationItem {
   submenuRole?: string;
 }
 
-export interface MenuProps {}
+export interface MenuProps {
+  isMobile: boolean;
+  navigationItems: NavigationItem[];
+}

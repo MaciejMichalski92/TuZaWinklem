@@ -1,8 +1,11 @@
 .DesktopMenu {
+  position: fixed;
+  width: 100%;
   @apply text-font-white;
   text-align: right;
   text-transform: capitalize;
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 
   span {
     cursor: default;
