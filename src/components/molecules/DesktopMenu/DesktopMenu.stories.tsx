@@ -10,6 +10,7 @@ const meta: Meta<typeof DesktopMenu> = {
 export const Default = () => (
   <div style={{ marginBottom: '200px' }}>
     <DesktopMenu
+      isScrolledDown
       navigationItems={[
         { title: 'Strona główna', href: '#' },
         {

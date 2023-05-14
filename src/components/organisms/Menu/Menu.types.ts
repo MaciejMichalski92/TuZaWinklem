@@ -11,5 +11,6 @@ export interface NavigationItem {
 
 export interface MenuProps {
   isMobile: boolean;
+  contentIsIntersecting?: boolean;
   navigationItems: NavigationItem[];
 }

@@ -12,8 +12,7 @@ import {
 import Image from 'next/image';
 import { GetServerSideProps } from 'next';
 import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
-import Footer from '@/components/organisms/Footer';
-import Menu from '@/components/organisms/Menu';
+import { MainLayout } from '@/components/layouts/MainLayout/MainLayout';
 
 export default function Home(props: {
   device: string;
@@ -29,10 +28,59 @@ export default function Home(props: {
   const isMobile = props.device === 'mobile';
 
   return (
-    <>
-      <Menu
-        isMobile={isMobile}
-        navigationItems={[
+    <MainLayout
+      headerImgSrc={imageFile.src}
+      footerProps={{
+        contactLinks: [
+          {
+            id: '56566ddd7',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '1',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '2',
+            href: '#',
+            text: 'Lorem'
+          }
+        ],
+        infoLinks: [
+          {
+            id: '43',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '4444',
+            href: '#',
+            text: 'Lorem'
+          }
+        ],
+        offertLinks: [
+          {
+            id: '555',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '7777',
+            href: '#',
+            text: 'Lorem'
+          },
+          {
+            id: '4',
+            href: '#',
+            text: 'Lorem'
+          }
+        ]
+      }}
+      menuProps={{
+        isMobile,
+        navigationItems: [
           { title: 'Strona główna', href: '#' },
           {
             title: 'Targi',
@@ -50,15 +98,9 @@ export default function Home(props: {
             ],
             submenuRole: 'Locals'
           }
-        ]}
-      />
-      <Header
-        title="Lorem"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptatem."
-        imgSrc={imageFile.src}
-        imgAlt="test"
-      />
-      <ContentSeparator />
+        ]
+      }}
+    >
       <h1 className=" text-3xl font-bold underline">
         Hello, Next.js! {counterValue}
         <button onClick={click}>+</button>
@@ -84,55 +126,7 @@ export default function Home(props: {
         />
       </AnimationWrapper>
       <ContentSeparator />
-      <Footer
-        contactLinks={[
-          {
-            id: '56566ddd7',
-            href: '#',
-            text: 'Lorem'
-          },
-          {
-            id: '1',
-            href: '#',
-            text: 'Lorem'
-          },
-          {
-            id: '2',
-            href: '#',
-            text: 'Lorem'
-          }
-        ]}
-        infoLinks={[
-          {
-            id: '43',
-            href: '#',
-            text: 'Lorem'
-          },
-          {
-            id: '4444',
-            href: '#',
-            text: 'Lorem'
-          }
-        ]}
-        offertLinks={[
-          {
-            id: '555',
-            href: '#',
-            text: 'Lorem'
-          },
-          {
-            id: '7777',
-            href: '#',
-            text: 'Lorem'
-          },
-          {
-            id: '4',
-            href: '#',
-            text: 'Lorem'
-          }
-        ]}
-      />
-    </>
+    </MainLayout>
   );
 }
 

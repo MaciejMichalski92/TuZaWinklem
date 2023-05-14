@@ -1,5 +1,6 @@
 .Footer {
   display: flex;
+  text-align: right;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -9,9 +10,7 @@
 
   div,
   nav {
-    min-height: 300px;
-    @apply sm:w-1/2;
-    @apply md:w-1/3;
+    min-height: 150px;
   }
 
   ul {

@@ -13,10 +13,17 @@ const MobileMenu = dynamic(
   { loading: () => <p>Ładowanie...</p> }
 );
 
-export const Menu = ({ isMobile, navigationItems }: MenuProps) => {
+export const Menu = ({
+  isMobile,
+  navigationItems,
+  contentIsIntersecting
+}: MenuProps) => {
   return isMobile ? (
     <MobileMenu navigationItems={navigationItems} />
   ) : (
-    <DesktopMenu navigationItems={navigationItems} />
+    <DesktopMenu
+      isScrolledDown={contentIsIntersecting}
+      navigationItems={navigationItems}
+    />
   );
 };

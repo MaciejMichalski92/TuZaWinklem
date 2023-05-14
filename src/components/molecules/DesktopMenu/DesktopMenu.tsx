@@ -9,7 +9,7 @@ const {
 } = pageTexts;
 export const DesktopMenu = ({
   navigationItems,
-  isScrolledDown = false
+  isScrolledDown
 }: DesktopMenuProps) => {
   const menuItems = navigationItems.map(
     ({ href, title, subMenu, submenuRole }, idx) => {
