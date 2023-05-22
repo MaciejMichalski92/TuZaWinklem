@@ -1,4 +1,4 @@
-import { store } from '@/app/store';
+import { store, wrapper } from '@/app/store';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { Open_Sans } from '@next/font/google';
@@ -11,7 +11,7 @@ const openSans = Open_Sans({
   variable: '--font-open-sans'
 });
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
       <div className={`${openSans.variable} font-sans`}>
@@ -19,4 +19,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </div>
     </Provider>
   );
-}
+};
+
+export default wrapper.withRedux(MyApp);

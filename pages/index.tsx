@@ -13,11 +13,16 @@ import Image from 'next/image';
 import { GetServerSideProps } from 'next';
 import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
 import { MainLayout } from '@/components/layouts/MainLayout/MainLayout';
+import { wrapper } from '@/app/store';
 
-export default function Home(props: {
+const { CONTENTFUL_DELIVERY_TOKEN, CONTENTFUL_SPACE_ID } =
+  process.env;
+
+const Home = (props: {
   device: string;
   isBot: boolean;
-}) {
+  response: any;
+}) => {
   const counterValue = useAppSelector(state => state.counter.value);
   const dispatch = useAppDispatch();
 
@@ -101,6 +106,7 @@ export default function Home(props: {
         ]
       }}
     >
+      {JSON.stringify(props.response, null, 2)}
       <h1 className=" text-3xl font-bold underline">
         Hello, Next.js! {counterValue}
         <button onClick={click}>+</button>
@@ -128,17 +134,42 @@ export default function Home(props: {
       <ContentSeparator />
     </MainLayout>
   );
-}
-
-export const getServerSideProps: GetServerSideProps = async ({
-  req: { headers }
-}) => {
-  const { device, isBot } = getDeviceInfoFromClient(headers);
-
-  return {
-    props: {
-      device,
-      isBot
-    }
-  };
 };
+
+export default Home;
+
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps(
+    store =>
+      async ({ req: { headers } }) => {
+        const { device, isBot } = getDeviceInfoFromClient(headers);
+
+        // toDo remove this demo
+        const responseFromContentful = await fetch(
+          `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/master`,
+          {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${CONTENTFUL_DELIVERY_TOKEN}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              query: `query {headingCollection{items{sys{id},text,type,isBold}}}`
+            })
+          }
+        );
+
+        if (!responseFromContentful.ok)
+          console.error(responseFromContentful);
+
+        const data = await responseFromContentful.json();
+        const response = data.data.headingCollection.items;
+        return {
+          props: {
+            device,
+            isBot,
+            response
+          }
+        };
+      }
+  );
