@@ -1,11 +1,9 @@
 import { configureStore, PreloadedState } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 import counterReducer from './feature/counter.slice';
-import { contentfulApi } from './api/contentful';
 
 const reducersCombined = {
-  counter: counterReducer,
-  [contentfulApi.reducerPath]: contentfulApi.reducer
+  counter: counterReducer
 };
 
 export const setupStore = (
@@ -16,7 +14,9 @@ export const setupStore = (
     preloadedState
   });
 
-export const store = configureStore({ reducer: reducersCombined });
+export const store = configureStore({
+  reducer: reducersCombined
+});
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

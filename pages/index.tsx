@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import Button from '@/components/atoms/Button';
 import imageFile from '@public/testImage.jpg';
 import ContentSeparator from '@/components/atoms/ContentSeparator';
-import Header from '@/components/molecules/Header';
 import AnimationWrapper from '@/components/molecules/AnimationWrapper';
 import {
   styleShowFromRight,
@@ -13,10 +12,9 @@ import Image from 'next/image';
 import { GetServerSideProps } from 'next';
 import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
 import { MainLayout } from '@/components/layouts/MainLayout/MainLayout';
-import { wrapper } from '@/app/store';
-
-const { CONTENTFUL_DELIVERY_TOKEN, CONTENTFUL_SPACE_ID } =
-  process.env;
+import { contentfulQuery } from '@/graphQLQueries/contentful';
+import { getContentfulByQuery } from '@/helpers/utils/getContentfulByQuery';
+import Slider from '@/components/organisms/Slider';
 
 const Home = (props: {
   device: string;
@@ -107,6 +105,7 @@ const Home = (props: {
       }}
     >
       {JSON.stringify(props.response, null, 2)}
+      <Slider cards="" />
       <h1 className=" text-3xl font-bold underline">
         Hello, Next.js! {counterValue}
         <button onClick={click}>+</button>
@@ -138,38 +137,24 @@ const Home = (props: {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps =
-  wrapper.getServerSideProps(
-    store =>
-      async ({ req: { headers } }) => {
-        const { device, isBot } = getDeviceInfoFromClient(headers);
-
-        // toDo remove this demo
-        const responseFromContentful = await fetch(
-          `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/master`,
-          {
-            method: 'POST',
-            headers: {
-              Authorization: `Bearer ${CONTENTFUL_DELIVERY_TOKEN}`,
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              query: `query {headingCollection{items{sys{id},text,type,isBold}}}`
-            })
-          }
-        );
-
-        if (!responseFromContentful.ok)
-          console.error(responseFromContentful);
-
-        const data = await responseFromContentful.json();
-        const response = data.data.headingCollection.items;
-        return {
-          props: {
-            device,
-            isBot,
-            response
-          }
-        };
-      }
+export const getServerSideProps: GetServerSideProps = async ({
+  req: { headers },
+  res
+}) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
   );
+
+  const { device, isBot } = getDeviceInfoFromClient(headers);
+
+  const data = await getContentfulByQuery(contentfulQuery);
+
+  return {
+    props: {
+      device,
+      isBot,
+      response: data
+    }
+  };
+};
