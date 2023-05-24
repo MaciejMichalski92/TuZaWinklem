@@ -32,7 +32,6 @@ const Home = (props: {
 
   return (
     <MainLayout
-      headerImgSrc={imageFile.src}
       footerProps={{
         contactLinks: [
           {
@@ -80,6 +79,13 @@ const Home = (props: {
             text: 'Lorem'
           }
         ]
+      }}
+      headerProps={{
+        title: 'Lorem',
+        subtitle:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptatem.',
+        imgSrc: imageFile.src,
+        imgAlt: 'test'
       }}
       menuProps={{
         isMobile,

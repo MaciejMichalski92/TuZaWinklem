@@ -7,10 +7,10 @@ import Footer from '@/components/organisms/Footer';
 import { useEffect, useRef, useState } from 'react';
 
 export const MainLayout = ({
-  headerImgSrc,
   children,
   footerProps,
-  menuProps
+  menuProps,
+  headerProps
 }: MainLayoutProps) => {
   const elementRef = useRef<HTMLHeadingElement>(null);
   const [contentIsIntersecting, setContentIsIntersecting] =
@@ -40,12 +40,7 @@ export const MainLayout = ({
         {...menuProps}
         contentIsIntersecting={contentIsIntersecting}
       />
-      <Header
-        title="Lorem"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, voluptatem."
-        imgSrc={headerImgSrc}
-        imgAlt="test"
-      />
+      <Header {...headerProps} />
       <div ref={elementRef}></div>
       <main>{children}</main>
       <ContentSeparator />
