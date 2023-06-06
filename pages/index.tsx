@@ -1,20 +1,21 @@
+import { GetServerSideProps } from 'next';
+import Image from 'next/image';
+import { gql } from '@apollo/client';
+
+import { client } from '@/apollo/client';
 import { increment } from '@/app/feature/counter.slice';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import Button from '@/components/atoms/Button';
-import imageFile from '@public/testImage.jpg';
 import ContentSeparator from '@/components/atoms/ContentSeparator';
 import AnimationWrapper from '@/components/molecules/AnimationWrapper';
 import {
   styleShowFromRight,
   styleShowFromLeft
 } from '@/components/molecules/AnimationWrapper/childrenStyles';
-import Image from 'next/image';
-import { GetServerSideProps } from 'next';
-import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
 import { MainLayout } from '@/components/layouts/MainLayout/MainLayout';
-import { contentfulQuery } from '@/graphQLQueries/contentful';
-import { getContentfulByQuery } from '@/helpers/utils/getContentfulByQuery';
 import Slider from '@/components/organisms/Slider';
+import { getDeviceInfoFromClient } from '@/helpers/utils/getDeviceInfoFromClient';
+import imageFile from '@public/testImage.jpg';
 
 const Home = (props: {
   device: string;
@@ -154,7 +155,22 @@ export const getServerSideProps: GetServerSideProps = async ({
 
   const { device, isBot } = getDeviceInfoFromClient(headers);
 
-  const data = await getContentfulByQuery(contentfulQuery);
+  const { data } = await client.query({
+    query: gql`
+      query HeadingCollection {
+        headingCollection {
+          items {
+            sys {
+              id
+            }
+            text
+            type
+            isBold
+          }
+        }
+      }
+    `
+  });
 
   return {
     props: {
