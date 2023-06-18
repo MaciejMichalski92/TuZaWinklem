@@ -24,12 +24,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You also may use GraphiQL, an IDE tool by going to this URL:
 
- https://graphql.contentful.com/content/v1/spaces/<SPACE_ID>/explore?access_token=<CDA_API_TOKEN>
+https://graphql.contentful.com/content/v1/spaces/<SPACE_ID>/explore?access_token=<CDA_API_TOKEN>
 
 **to generate graphQL types, run the command:**
 
 ```bash
-npm run codegen 
+npm run codegen
 ```
 
 ## Caveats and tips
