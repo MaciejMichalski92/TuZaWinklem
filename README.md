@@ -1,6 +1,6 @@
 # Getting Started
 
-create .env.local file in the root of the project:
+**create .env.local file in the root of the project:**
 
 ```text
 CONTENTFUL_DELIVERY_TOKEN=<token>
@@ -8,7 +8,7 @@ CONTENTFUL_PREVIEW_TOKEN=<token>
 CONTENTFUL_SPACE_ID=<id>
 ```
 
-to make a new component automatically, run the command:
+**to make a new component automatically, run the command:**
 
 ```bash
 npm run component <file(atoms||molecules||organisms||layouts)> <componentName>
@@ -21,6 +21,16 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You also may use GraphiQL, an IDE tool by going to this URL:
+
+ https://graphql.contentful.com/content/v1/spaces/<SPACE_ID>/explore?access_token=<CDA_API_TOKEN>
+
+**to generate graphQL types, run the command:**
+
+```bash
+npm run codegen 
+```
 
 ## Caveats and tips
 
